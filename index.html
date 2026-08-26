@@ -336,8 +336,8 @@ function calc(a){
   const orders=(budget/cpl)*cr;
   const addOborot=orders*chk;
   const forecast=cur+addOborot;
-  const lost6=addOborot*6;
-  return {cpl,cpo,cr,budget,forecast,addOborot,lostLo:lost6*0.9,lostHi:lost6*1.1};
+  const diff=Math.max(goal-cur,0);
+  return {cpl,cpo,cr,budget,forecast,addOborot,lostLo:diff*3,lostHi:diff*4};
 }
 function score(a){
   let s=7;
