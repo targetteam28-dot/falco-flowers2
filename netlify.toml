@@ -1,0 +1,24 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+# Форма квіза/лендингу постить сюди
+[[redirects]]
+  from = "/api/lead"
+  to = "/.netlify/functions/lead"
+  status = 200
+
+# Гарний шлях до квіза
+[[redirects]]
+  from = "/quiz"
+  to = "/quiz.html"
+  status = 200
+
+# Базові безпекові заголовки
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
